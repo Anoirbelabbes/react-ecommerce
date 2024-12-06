@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "name": "Pot en cuivre",
+        "category": "Cuisine",
+        "description": "Pot traditionnel marocain fabriqué en cuivre. Apprécié pour sa durabilité et son esthétique artisanale.",
+        "price": 499,
+        "image": "product1.jpg",
+        "promotion": false
+    },
+    {
+        "id": 2,
+        "name": "Pot en terre",
+        "category": "Decore",
+        "description": "Pot en terre cuite artisanale, utilisé comme objet décoratif. Son design rustique et ses motifs traditionnels apportent une touche chaleureuse et authentique à tout intérieur",
+        "price": 149,
+        "image": "product2.jpg",
+        "promotion": true
+    },
+    {
+        "id": 3,
+        "name": "Safran",
+        "category": "Epice",
+        "description": "Safran pur de qualité supérieure, épice précieuse et aromatique utilisée dans la cuisine marocaine pour rehausser les saveurs des plats. Réputé pour sa couleur vibrante et son parfum unique, il est idéal pour les tajines, le couscous et les pâtisseries traditionnelles.",
+        "price": 99,
+        "image": "product3.jpg",
+        "promotion": false
+    },
+    {
+        "id": 4,
+        "name": "Boîte en bois",
+        "category": "Cuisine",
+        "description": "Boîte de cuisine en bois fabriquée à la main, idéale pour le rangement des épices, des herbes ou des ingrédients secs. Son design naturel et élégant ajoute une touche artisanale et chaleureuse à votre espace de cuisine.",
+        "price": 69,
+        "image": "product4.jpg",
+        "promotion": true
+    },
+    {
+        "id": 5,
+        "name": "Bol en céramique",
+        "category": "Cuisine",
+        "description": "Bol peint à la main avec motifs marocains.",
+        "price": 49,
+        "image": "product5.jpg",
+        "promotion": false
+    },
+    {
+        "id": 6,
+        "name": "Théière en cuivre",
+        "category": "Cuisine",
+        "description": "Théière traditionnelle pour préparer le thé à la menthe.",
+        "price": 299,
+        "image": "product6.jpg",
+        "promotion": true
+    },
+    {
+        "id": 7,
+        "name": "Coupe de poterie",
+        "category": "Cuisine",
+        "description": "Coupe de poterie artisanale, réalisée à la main avec des techniques traditionnelles.",
+        "price": 29,
+        "image": "product7.jpg",
+        "promotion": false
+    },
+    {
+        "id": 8,
+        "name": "Coupe de poterie",
+        "category": "Decore",
+        "description": "Coupe de poterie artisanale, utilisé comme objet décoratif. réalisée à la main avec des techniques traditionnelles.",
+        "price": 49,
+        "image": "product8.jpg",
+        "promotion": false
+    },
+    {
+        "id": 9,
+        "name": "Babouche Marocaine Pour Femmes",
+        "category": "Mode femme",
+        "description": "Magnifique babouche en cuir, avec de jolies gravures faites entièrement à la main dans le cuir. Légèreté, finesse du cuir et une allure raffinée. Modèle fabriqué entièrement à la main, avec des matériaux 100% naturels",
+        "price": 149,
+        "image": "product9.jpg",
+        "promotion": true
+    },
+    {
+        "id": 10,
+        "name": "Babouche Marocaine Pour Hommes",
+        "category": "Mode homme",
+        "description": "Babouche de luxe, confectionnée avec du cuir naturel du fil synthétique et du tissu, certaines babouches sont brodées entièrement ou partiellement. La Balgha ziouani est généralement fabriquée avec du cuir spécial appelé Ziouani",
+        "price": 199,
+        "image": "product10.jpg",
+        "promotion": false
+    },
+    {
+        "id": 11,
+        "name": "Pendentif Khmissa marocain / Porte-clés",
+        "category": "Decore",
+        "description": "Porte-clés marocain Khmissa pendentif à main. La main de Khmissa (la main de Fatima) est considérée comme le symbole universel de la PROTECTION, de la BIENVEILLANCE et de la PAIX.",
+        "price": 99,
+        "image": "product11.jpg",
+        "promotion": false
+    },
+    {
+        "id": 12,
+        "name": "Huile d'argan pure",
+        "category": "Epice",
+        "description": "Huile d'argan pure, extraite des noix de l'arganier, un produit naturel aux propriétés nourrissantes et hydratantes. Utilisée pour les soins de la peau et des cheveux, elle est également prisée en cuisine pour son goût unique et ses bienfaits santé.",
+        "price": 299,
+        "image": "product12.jpg",
+        "promotion": true
+    },
+    {
+        "id": 13,
+        "name": "Bracelet berbère",
+        "category": "Decore",
+        "description": "Bracelet artisanal avec motifs berbères.",
+        "price": 150,
+        "image": "product13.jpg",
+        "promotion": false
+    },
+    {
+        "id": 14,
+        "name": "BEURRIER FASSIA GOLD",
+        "category": "Decore",
+        "description": "Un petit objet plein de charme. Avec sa forme ronde et adorable, cette boîte est parfaite pour conserver le sucre, le miel ou d’autres douceurs. Elle peut également être utilisée comme petite boîte à bijoux ou à secrets, ajoutant une note personnelle à votre décoration.",
+        "price": 99,
+        "image": "product14.jpg",
+        "promotion": true
+    },
+    {
+        "id": 15,
+        "name": "Tajine",
+        "category": "Cuisine",
+        "description": "Plat en terre cuite utilisé pour cuisiner des plats marocains.",
+        "price": 99,
+        "image": "product15.jpg",
+        "promotion": false
+    },
+    {
+        "id": 16,
+        "name": "Tapis berbère",
+        "category": "Decore",
+        "description": "Tapis fait à la main avec des motifs berbères.",
+        "price": 2499,
+        "image": "product16.jpg",
+        "promotion": true
+    },
+    {
+        "id": 17,
+        "name": "Boite en raphia",
+        "category": "Cuisine",
+        "description": "Boite fabriqué à partir de fibres naturelles.",
+        "price": 99,
+        "image": "product17.jpg",
+        "promotion": false
+    },
+    {
+        "id": 18,
+        "name": "Plat en raphia",
+        "category": "Cuisine",
+        "description": "Plat fabriqué à partir de fibres naturelles.",
+        "price": 49,
+        "image": "product18.jpg",
+        "promotion": false
+    },
+    {
+        "id": 19,
+        "name": "Djellaba",
+        "category": "Mode homme",
+        "description": "Vêtement traditionnel marocain pour hommes.",
+        "price": 399,
+        "image": "product19.jpg",
+        "promotion": true
+    },
+    {
+        "id": 20,
+        "name": "Assiettes Taous",
+        "category": "Cuisine",
+        "description": "Assiette Taous en céramique, décorée à la main avec des motifs traditionnels marocains.",
+        "price": 299,
+        "image": "product20.jpg",
+        "promotion": false
+    }
+]
