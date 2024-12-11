@@ -10,9 +10,9 @@ function FilterMenu({ filters, onFilterChange }) {
             onChange={(e) => onFilterChange("category", e.target.value)}
           >
             <option value="">All</option>
-            <option value="Kitchen">Kitchen</option>
-            <option value="Home Decor">Home Decor</option>
-            <option value="Beauty">Beauty</option>
+            <option value="Cuisine">Kitchen</option>
+            <option value="Decore">Home Decor</option>
+            <option value="Epice">Beauty</option>
           </select>
         </div>
         <div className="mb-3">
