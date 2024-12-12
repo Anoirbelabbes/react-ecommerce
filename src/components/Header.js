@@ -1,68 +1,84 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useCart } from "../products/detail/CartContext"; 
+import { useCart } from "../products/detail/CartContext";
 import logo from "./logo.png";
 
 function Header() {
   const [openedDrawer, setOpenedDrawer] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false); 
-  const [showSignUpModal, setShowSignUpModal] = useState(false); 
-  const [userType, setUserType] = useState(""); // État pour définir si l'utilisateur est acheteur ou vendeur
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [userType, setUserType] = useState(""); // Type d'utilisateur (acheteur/vendeur)
   const { cartItems } = useCart();
 
   function toggleDrawer() {
     setOpenedDrawer(!openedDrawer);
   }
 
-  function changeNav(event) {
+  function changeNav() {
     if (openedDrawer) {
       setOpenedDrawer(false);
     }
   }
 
   function openLoginModal() {
-    setShowLoginModal(true); 
+    setShowLoginModal(true);
   }
 
   function closeLoginModal() {
-    setShowLoginModal(false); 
+    setShowLoginModal(false);
   }
 
   function openSignUpModal() {
-    setShowSignUpModal(true); 
+    setShowSignUpModal(true);
   }
 
   function closeSignUpModal() {
-    setShowSignUpModal(false); 
+    setShowSignUpModal(false);
   }
 
   function handleUserTypeSelection(type) {
-    setUserType(type); // Définit le type d'utilisateur (vendeur ou acheteur)
+    setUserType(type);
   }
 
   return (
-    <header style={{ paddingTop: '60px' }}>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom">
+    <header style={{ paddingTop: "60px" }}>
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/" onClick={changeNav}>
-            <img src={logo} alt="Logo" className="logo ms-1" style={{ height: "60px" }} />
-            <span className="ms-2 h5">NearBuy</span>
+          <Link className="navbar-brand d-flex align-items-center" to="/" onClick={changeNav}>
+            <img
+              src={logo}
+              alt="Logo"
+              className="logo ms-1"
+              style={{ height: "50px" }}
+            />
+            <span className="ms-2 h5 fw-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>NearBuy</span>
           </Link>
 
-          <div className={"navbar-collapse offcanvas-collapse " + (openedDrawer ? 'open' : '')}>
+          <div
+            className={"navbar-collapse offcanvas-collapse " + (openedDrawer ? "open" : "")}
+          >
             <ul className="navbar-nav me-auto mb-lg-0">
               <li className="nav-item">
-                <Link to="/products" className="nav-link" replace onClick={changeNav}>
+                <Link
+                  to="/products"
+                  className="nav-link text-dark fw-semibold"
+                  replace
+                  onClick={changeNav}
+                  style={{ fontFamily: 'Roboto, sans-serif' }}
+                >
                   Explore
                 </Link>
               </li>
             </ul>
 
-            <Link to="/cart" className="btn btn-outline-dark me-3 d-none d-lg-inline">
+            <Link
+              to="/cart"
+              className="btn btn-outline-dark me-3 d-none d-lg-inline position-relative"
+            >
               <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-              <span className="ms-3 badge rounded-pill bg-dark">
-                {cartItems.length} {/* Affiche le nombre d'articles dans le panier */}
+              <span className="ms-2 position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cartItems.length}
               </span>
             </Link>
 
@@ -70,7 +86,7 @@ function Header() {
               <li className="nav-item dropdown">
                 <button
                   type="button"
-                  className="nav-link dropdown-toggle btn btn-link"
+                  className="nav-link dropdown-toggle btn btn-link text-dark"
                   id="userDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -79,7 +95,7 @@ function Header() {
                   <FontAwesomeIcon icon={["fas", "user-alt"]} />
                 </button>
                 <ul
-                  className="dropdown-menu dropdown-menu-end"
+                  className="dropdown-menu dropdown-menu-end shadow-sm border-0"
                   aria-labelledby="userDropdown"
                 >
                   <li>
@@ -98,13 +114,17 @@ function Header() {
           </div>
 
           <div className="d-inline-block d-lg-none">
-            <Link to="/cart" className="btn btn-outline-dark">
+            <Link to="/cart" className="btn btn-outline-dark position-relative">
               <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-              <span className="ms-3 badge rounded-pill bg-dark">
-                {cartItems.length} {/* Affiche le nombre d'articles dans le panier */}
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cartItems.length}
               </span>
             </Link>
-            <button className="navbar-toggler p-0 border-0 ms-3" type="button" onClick={toggleDrawer}>
+            <button
+              className="navbar-toggler p-0 border-0 ms-3"
+              type="button"
+              onClick={toggleDrawer}
+            >
               <span className="navbar-toggler-icon"></span>
             </button>
           </div>
@@ -113,24 +133,54 @@ function Header() {
 
       {/* Modal Login */}
       {showLoginModal && (
-        <div className="modal fade show" style={{ display: "block" }} tabIndex="-1" aria-labelledby="loginModal" aria-hidden="true">
+        <div
+          className="modal fade show"
+          style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
+          tabIndex="-1"
+          aria-labelledby="loginModal"
+          aria-hidden="true"
+        >
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="loginModal">Login</h5>
-                <button type="button" className="btn-close" onClick={closeLoginModal}></button> {/* X Icon */}
+                <h5 className="modal-title" id="loginModal">
+                  Login
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={closeLoginModal}
+                ></button>
               </div>
               <div className="modal-body">
                 <form>
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" />
+                    <label htmlFor="email" className="form-label">
+                      Email address
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                    />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="password" />
+                    <label htmlFor="password" className="form-label">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                    />
                   </div>
-                  <button type="submit" className="btn btn-primary w-100">Login</button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 fw-bold"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
+                  >
+                    Login
+                  </button>
                 </form>
               </div>
             </div>

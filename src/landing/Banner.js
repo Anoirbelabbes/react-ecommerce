@@ -24,18 +24,50 @@ function BannerImage(props) {
       data-bs-interval="5000"
     >
       <div
-        className="ratio"
+        className="ratio position-relative"
         style={{ "--bs-aspect-ratio": "50%", maxHeight: "460px" }}
       >
+        {/* Image */}
         <img
           className="d-block w-100 h-100 bg-dark cover"
           alt={`Slide ${props.index + 1}`}
-          src={props.image} // Référence dynamique des images
+          src={props.image}
+          style={{ opacity: "0.8", objectFit: "cover" }}
         />
+        {/* Overlay pour texte */}
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8))",
+          }}
+        ></div>
       </div>
+      {/* Texte du carousel */}
       <div className="carousel-caption d-none d-lg-block">
-        <h3 style={{ color: "white" }}>Find What You Need Nearby with NearBuy</h3>
-        <p>An ecosystem designed for thriving sellers and satisfied buyers.</p>
+        <h3
+          style={{
+            color: "#fff",
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "600",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          Find What You Need Nearby with NearBuy
+        </h3>
+        <p
+          style={{
+            color: "#e0e0e0",
+            fontFamily: "Roboto, sans-serif",
+            fontSize: "1.2rem",
+            textShadow: "1px 1px 3px rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          An ecosystem designed for thriving sellers and satisfied buyers.
+        </p>
       </div>
     </div>
   );
