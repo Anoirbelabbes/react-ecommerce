@@ -178,5 +178,59 @@
         "price": 299,
         "image": "product20.jpg",
         "promotion": false
+    },
+    {
+        "id": 21,
+        "name": "L’eau de rose",
+        "category": "Cuisine",
+        "description": "Eau de rose naturelle, extraite des pétales de roses marocaines. Connue pour ses propriétés apaisantes et rafraîchissantes, elle est utilisée en cosmétique pour tonifier la peau et en cuisine pour parfumer délicatement les desserts et boissons.",
+        "price": 49,
+        "image": "product21.jpg",
+        "promotion": false
+    },
+    {
+        "id": 22,
+        "name": "Kohl",
+        "category": "Mode femme",
+        "description": "Poudre traditionnelle utilisée comme maquillage pour souligner les yeux, réputée pour son origine naturelle et ses bienfaits apaisants.",
+        "price": 49,
+        "image": "product22.jpg",
+        "promotion": false
+    },
+    {
+        "id": 23,
+        "name": "Amlou",
+        "category": "Cuisine",
+        "description": "Pâte à tartiner marocaine composée d'amandes, de miel et d'huile d'argan, appréciée pour son goût riche et ses bienfaits nutritionnels.",
+        "price": 99,
+        "image": "product23.jpg",
+        "promotion": true
+    },
+    {
+        "id": 24,
+        "name": "Tanjia",
+        "category": "Cuisine",
+        "description": "Plat en terre cuite originaire de Marrakech, utilisé pour la cuisson lente des viandes et des légumes dans un four traditionnel.",
+        "price": 149,
+        "image": "product24.jpg",
+        "promotion": false
+    },
+    {
+        "id": 25,
+        "name": "Henna",
+        "category": "Mode femme",
+        "description": "Poudre de henné naturelle utilisée pour les tatouages temporaires et les soins capillaires, célèbre pour ses propriétés fortifiantes.",
+        "price": 49,
+        "image": "product25.jpg",
+        "promotion": false
+    },
+    {
+        "id": 26,
+        "name": "Lanterne en fer forgé",
+        "category": "Decore",
+        "description": "Lanterne artisanale marocaine, ornée de motifs complexes, idéale pour créer une ambiance chaleureuse et authentique.",
+        "price": 199,
+        "image": "product26.jpg",
+        "promotion": false
     }
 ]

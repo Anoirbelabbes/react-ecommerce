@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useCart } from "../products/detail/CartContext";
 import logo from "./logo.png";
+import Profil from "./Profil"; // Assurez-vous que Profil.js est bien importé
 
 function Header() {
   const [openedDrawer, setOpenedDrawer] = useState(false);
@@ -55,10 +56,8 @@ function Header() {
             <span className="ms-2 h5 fw-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>NearBuy</span>
           </Link>
 
-          <div
-            className={"navbar-collapse offcanvas-collapse " + (openedDrawer ? "open" : "")}
-          >
-            <ul className="navbar-nav me-auto mb-lg-0">
+          <div className={"navbar-collapse offcanvas-collapse " + (openedDrawer ? "open" : "")}>
+            <ul className="navbar-nav mx-auto mb-lg-0 d-flex justify-content-center">
               <li className="nav-item">
                 <Link
                   to="/products"
@@ -70,33 +69,47 @@ function Header() {
                   Explore
                 </Link>
               </li>
+
+              {/* Section pour les liens supplémentaires */}
+              <li className="nav-item">
+                <Link
+                  to="/about"
+                  className="nav-link text-dark fw-semibold"
+                  replace
+                  onClick={changeNav}
+                  style={{ fontFamily: 'Roboto, sans-serif' }}
+                >
+                  About Us
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/contact"
+                  className="nav-link text-dark fw-semibold"
+                  replace
+                  onClick={changeNav}
+                  style={{ fontFamily: 'Roboto, sans-serif' }}
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
 
-            <Link
-              to="/cart"
-              className="btn btn-outline-dark me-3 d-none d-lg-inline position-relative"
-            >
-              <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-              <span className="ms-2 position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {cartItems.length}
-              </span>
-            </Link>
-
+            {/* Dropdown Menu "Account" */}
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item dropdown">
                 <button
-                  type="button"
                   className="nav-link dropdown-toggle btn btn-link text-dark"
-                  id="userDropdown"
+                  id="accountDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <FontAwesomeIcon icon={["fas", "user-alt"]} />
+                  <FontAwesomeIcon icon={["fas", "user-circle"]} /> Account
                 </button>
                 <ul
                   className="dropdown-menu dropdown-menu-end shadow-sm border-0"
-                  aria-labelledby="userDropdown"
+                  aria-labelledby="accountDropdown"
                 >
                   <li>
                     <button className="dropdown-item" onClick={openLoginModal}>
@@ -108,18 +121,47 @@ function Header() {
                       Sign Up
                     </button>
                   </li>
+                  <li>
+                    <Link className="dropdown-item" to="/profil">
+                      My Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/orders">
+                      My Orders
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/cart">
+                      My Cart
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/settings">
+                      Settings
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
-          </div>
 
-          <div className="d-inline-block d-lg-none">
-            <Link to="/cart" className="btn btn-outline-dark position-relative">
+            {/* Panier */}
+            <Link
+              to="/cart"
+              className="btn btn-outline-dark me-3 d-none d-lg-inline position-relative"
+              style={{ transition: 'all 0.3s ease' }}
+              onMouseEnter={(e) => e.target.style.transform = "scale(1.1)"}
+              onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
+            >
               <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <span className="ms-2 position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {cartItems.length}
               </span>
             </Link>
+          </div>
+
+          {/* Drawer Toggle pour mobile */}
+          <div className="d-inline-block d-lg-none">
             <button
               className="navbar-toggler p-0 border-0 ms-3"
               type="button"
@@ -144,7 +186,7 @@ function Header() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="loginModal">
-                  Login
+                  Login to Your Account
                 </h5>
                 <button
                   type="button"
@@ -156,12 +198,13 @@ function Header() {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
-                      Email address
+                      Email Address
                     </label>
                     <input
                       type="email"
                       className="form-control"
                       id="email"
+                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -172,6 +215,7 @@ function Header() {
                       type="password"
                       className="form-control"
                       id="password"
+                      required
                     />
                   </div>
                   <button
@@ -195,10 +239,10 @@ function Header() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="signUpModal">Sign Up</h5>
-                <button type="button" className="btn-close" onClick={closeSignUpModal}></button> {/* X Icon */}
+                <button type="button" className="btn-close" onClick={closeSignUpModal}></button>
               </div>
               <div className="modal-body">
-                <h5>Choose your user type</h5>
+                <h5>Choose Your User Type</h5>
                 <div className="row">
                   <div className="col-md-6 mb-3">
                     <div className="card" style={{ cursor: 'pointer' }} onClick={() => handleUserTypeSelection('buyer')}>

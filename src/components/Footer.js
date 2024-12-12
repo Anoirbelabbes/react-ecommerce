@@ -1,23 +1,22 @@
-import logo2 from "./logo2.png"
+import logo2 from "./logo2.png";
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-5">
+    <footer className="bg-dark text-light py-1 pt-4 mt-5"> {/* Réduction du padding vertical pour réduire la hauteur du footer */}
       <div className="container">
         <div className="row">
           {/* Logo et description */}
           <div className="col-md-4 mb-4 d-flex align-items-center">
-  <img
-    src={logo2}
-    alt="NearBuy Logo"
-    style={{ width: "70px", marginRight: "10px" }}
-  />
-  <p className="mt-3 mb-0">
-    NearBuy: Une plateforme e-commerce innovante connectant vendeurs et acheteurs.
-    Trouvez ce dont vous avez besoin, près de chez vous.
-  </p>
-</div>
-
+            <img
+              src={logo2}
+              alt="NearBuy Logo"
+              style={{ width: "70px", marginRight: "10px" }}
+            />
+            <p className="mt-3 mb-0">
+              NearBuy: Une plateforme e-commerce innovante connectant vendeurs et acheteurs.
+              Trouvez ce dont vous avez besoin, près de chez vous.
+            </p>
+          </div>
 
           {/* Liens utiles */}
           <div className="col-md-4 mb-4">

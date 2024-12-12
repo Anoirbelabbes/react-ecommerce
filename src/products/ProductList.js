@@ -1,4 +1,3 @@
-// export default ProductList;
 import React, { useState } from "react";
 import FilterMenu from "./FileterMenu"; // Assurez-vous que le chemin est correct
 import Product from "./Product"; // Composant pour afficher un produit individuel
@@ -9,6 +8,8 @@ function ProductList() {
     category: "",
     minPrice: "",
     maxPrice: "",
+    search: "",
+    promotion: false, // Ajout du filtre pour les promotions
   });
 
   const handleFilterChange = (key, value) => {
@@ -16,14 +17,26 @@ function ProductList() {
   };
 
   const filteredProducts = products.filter((product) => {
+    // Recherche par nom
+    if (
+      filters.search &&
+      !product.name.toLowerCase().includes(filters.search.toLowerCase())
+    )
+      return false;
+
     // Filtrer par catégorie
     if (filters.category && product.category !== filters.category) return false;
 
     // Filtrer par prix minimum
-    if (filters.minPrice && product.price < parseFloat(filters.minPrice)) return false;
+    if (filters.minPrice && product.price < parseFloat(filters.minPrice))
+      return false;
 
     // Filtrer par prix maximum
-    if (filters.maxPrice && product.price > parseFloat(filters.maxPrice)) return false;
+    if (filters.maxPrice && product.price > parseFloat(filters.maxPrice))
+      return false;
+
+    // Filtrer par promotion uniquement
+    if (filters.promotion && !product.promotion) return false;
 
     return true;
   });
