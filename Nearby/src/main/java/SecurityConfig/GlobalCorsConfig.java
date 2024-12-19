@@ -1,6 +1,6 @@
 package SecurityConfig;
 
-; // Replace with your actual package
+// Replace with your actual package
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

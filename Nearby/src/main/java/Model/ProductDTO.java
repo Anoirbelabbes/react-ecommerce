@@ -75,4 +75,8 @@ public class ProductDTO {
 
     private String categoryName;
     private Long sellerId;
+
+	public Long getCategoryId() {
+		return id;
+	}
 }
