@@ -1,7 +1,9 @@
 package Controller;
 
 
+import Entity.Role;
 import Entity.User;
+import Repositories.UserRepository;
 import SecurityConfig.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import repository.UserRepository;
+
 import response.AuthResponse;
 import service.UserService;
 import service.UserServiceImplementation;
@@ -47,9 +49,9 @@ public class UserController {
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user)  {
         String email = user.getEmail();
         String password = user.getPassword();
-        String fullName = user.getFullName();
-        String mobile = user.getMobile();
-        String role = user.getRole();
+        String fullName = user.getName();
+
+        Role role = user.getRole();
 
         User isEmailExist = userRepository.findByEmail(email);
         if (isEmailExist != null) {
@@ -58,8 +60,8 @@ public class UserController {
         }
         User createdUser = new User();
         createdUser.setEmail(email);
-        createdUser.setFullName(fullName);
-        createdUser.setMobile(mobile);
+        createdUser.setName(fullName);
+
         createdUser.setRole(role);
         createdUser.setPassword(passwordEncoder.encode(password));
 
