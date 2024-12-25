@@ -2,40 +2,40 @@ import React, { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
-export const useCart = () => {
-  return useContext(CartContext);
-};
-
-export const CartProvider = ({ children }) => {
+export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  // Fonction pour ajouter un produit au panier
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const existingProductIndex = prevItems.findIndex(
-        (item) => item.id === product.id
-      );
-
-      if (existingProductIndex !== -1) {
-        // Si le produit existe déjà, on met à jour la quantité
-        const updatedItems = [...prevItems];
-        updatedItems[existingProductIndex].quantity += product.quantity;
-        return updatedItems;
-      } else {
-        // Sinon, on ajoute le produit au panier
-        return [...prevItems, product];
+      const existingItem = prevItems.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
       }
+      return [...prevItems, { ...product, quantity: 1 }];
     });
   };
 
-  // Fonction pour supprimer un produit du panier
-  const removeFromCart = (productId) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
+  const removeFromCart = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, clearCart, cartCount }}
+    >
       {children}
     </CartContext.Provider>
   );
-};
+}
+
+export function useCart() {
+  return useContext(CartContext);
+}

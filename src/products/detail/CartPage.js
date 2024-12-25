@@ -99,7 +99,7 @@ function CartPage() {
               />
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
-                <p className="card-text">Price: ${item.price}</p>
+                <p className="card-text">Price: {item.price} DH</p>
                 <p className="card-text">Quantity: {item.quantity}</p>
 
                 <button
@@ -116,9 +116,9 @@ function CartPage() {
 
       {/* Section du total et des frais de livraison */}
       <div className="mt-4 p-4 bg-light rounded shadow-sm">
-        <h4>Total Price: <span className="text-primary">${totalPrice}</span></h4>
-        <p>Shipping: ${shippingCost}</p>
-        <h5 className="text-success">Final Total: ${finalTotal}</h5>
+        <h4>Total Price: <span className="text-primary">{totalPrice} DH</span></h4>
+        <p>Shipping: {shippingCost} DH</p>
+        <h5 className="text-success">Final Total: {finalTotal} DH</h5>
 
         {/* Bouton Clear Cart */}
         <button
