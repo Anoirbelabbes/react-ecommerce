@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCog, faHistory, faShoppingCart, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { useCart } from "../products/detail/CartContext"; // Si vous utilisez un contexte pour le panier
+import { useCart } from "../products/detail/CartContext";
 
 function Profil() {
   const [userInfo, setUserInfo] = useState({
     name: "Belabbes Anouar",
-    email: "anouar.belabbes@gamil.com",
+    email: "anouar.belabbes@gmail.com",
     address: "Berkane",
     phone: "+212 654 13 53 04",
     orders: [
@@ -15,40 +15,41 @@ function Profil() {
       { id: 2, date: "2024-10-21", total: "$50", status: "Delivered" },
     ],
   });
-  const { cartItems } = useCart(); // Exemple de gestion du panier
+  const { cartItems } = useCart();
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 profile-page">
       <div className="row">
         {/* Sidebar */}
         <div className="col-md-3">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="card-title">Hello, {userInfo.name}</h4>
-              <p className="card-text">{userInfo.email}</p>
-              <Link to="/settings" className="btn btn-primary w-100">
-                <FontAwesomeIcon icon={faCog} /> Account Settings
+          <div className="card profile-card">
+            <div className="card-body text-center">
+              <FontAwesomeIcon icon={faUser} className="profile-icon" />
+              <h4 className="profile-name">{userInfo.name}</h4>
+              <p className="profile-email">{userInfo.email}</p>
+              <Link to="/settings" className="btn btn-primary btn-rounded profile-btn">
+                <FontAwesomeIcon icon={faCog} /> Settings
               </Link>
               <hr />
-              <ul className="list-unstyled">
+              <ul className="list-unstyled profile-links">
                 <li>
-                  <Link to="/orders" className="d-flex align-items-center">
+                  <Link to="/orders" className="profile-link">
                     <FontAwesomeIcon icon={faHistory} className="me-2" /> Order History
                   </Link>
                 </li>
                 <li>
-                  <Link to="/cart" className="d-flex align-items-center">
+                  <Link to="/cart" className="profile-link">
                     <FontAwesomeIcon icon={faShoppingCart} className="me-2" /> My Cart
-                    <span className="badge rounded-pill bg-danger ms-2">{cartItems.length}</span>
+                    <span className="badge bg-danger ms-2">{cartItems.length}</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/messages" className="d-flex align-items-center">
+                  <Link to="/messages" className="profile-link">
                     <FontAwesomeIcon icon={faEnvelope} className="me-2" /> Messages
                   </Link>
                 </li>
                 <li>
-                  <Link to="/address" className="d-flex align-items-center">
+                  <Link to="/address" className="profile-link">
                     <FontAwesomeIcon icon={faMapMarkerAlt} className="me-2" /> Address
                   </Link>
                 </li>
@@ -59,53 +60,49 @@ function Profil() {
 
         {/* Main Content */}
         <div className="col-md-9">
-          <div className="card">
+          <div className="card profile-main-card">
             <div className="card-body">
-              <h5 className="card-title">Profile Overview</h5>
-              <hr />
+              <h5 className="profile-header">Profile Overview</h5>
               <div className="row">
                 <div className="col-md-6">
-                  <h6 className="fw-bold">Personal Information</h6>
-                  <p><strong>Name:</strong> {userInfo.name}</p>
-                  <p><strong>Email:</strong> {userInfo.email}</p>
-                  <p><strong>Phone:</strong> {userInfo.phone}</p>
+                  <div className="profile-section">
+                    <h6 className="profile-section-title">Personal Information</h6>
+                    <p><strong>Name:</strong> {userInfo.name}</p>
+                    <p><strong>Email:</strong> {userInfo.email}</p>
+                    <p><strong>Phone:</strong> {userInfo.phone}</p>
+                  </div>
                 </div>
                 <div className="col-md-6">
-                  <h6 className="fw-bold">Shipping Address</h6>
-                  <p>{userInfo.address}</p>
+                  <div className="profile-section">
+                    <h6 className="profile-section-title">Shipping Address</h6>
+                    <p>{userInfo.address}</p>
+                  </div>
                 </div>
               </div>
 
               <hr />
-              <h5>Order History</h5>
+              <h5 className="profile-header">Order History</h5>
               <div className="list-group">
                 {userInfo.orders.map((order) => (
-                  <div key={order.id} className="list-group-item d-flex justify-content-between">
+                  <div key={order.id} className="list-group-item order-item">
                     <div>
                       <strong>Order #{order.id}</strong>
-                      <p className="mb-0">Date: {order.date}</p>
+                      <p className="order-date">Date: {order.date}</p>
                     </div>
-                    <div>
-                      <span className="badge bg-info">{order.status}</span>
-                      <p className="mb-0">Total: {order.total}</p>
+                    <div className="order-info">
+                      <span className={`badge ${order.status === "Shipped" ? "bg-info" : "bg-success"}`}>{order.status}</span>
+                      <p className="order-total">Total: {order.total}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
 
-          <hr />
-          <div className="d-flex justify-content-between">
-            <div>
-              <h6>Change Password</h6>
-              <button className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
-                Change Password
-              </button>
-            </div>
-            <div>
-              <h6>Log out</h6>
-              <button className="btn btn-danger">Log Out</button>
+              <div className="profile-footer">
+                <button className="btn btn-outline-secondary btn-rounded transition" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                  Change Password
+                </button>
+                <button className="btn btn-danger btn-rounded transition">Log Out</button>
+              </div>
             </div>
           </div>
         </div>
